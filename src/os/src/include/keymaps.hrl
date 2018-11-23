@@ -1,7 +1,7 @@
 %%% Stores the supported keymaps in HydrOS, aswell as the default keymap.
 %%% To change the keymap at boot time, simply change the definition of the
 %%% DEFAULT_KEYMAP macro.
-%%% To add a keymap, add a new list, in the same format as the others, to 
+%%% To add a keymap, add a new list, in the same format as the others, to
 %%% the KEYMAPS macro.
 
 -define(DEFAULT_KEYMAP, "gb").
@@ -13,9 +13,6 @@
 }).
 
 -define(KEYMAPS,[
-%       scan                           ctrl          alt    alt    ctrl
-%       code      base   shift  ctrl   shift  alt    shift  ctrl   shift
-%       ----------------------------------------------------------------
 {"gb", [
 	#key{scancode = [16#1],  key_characters = [{esc, 27}], type = sys},
 	#key{scancode = [16#2],  key_characters = [$1, $!], type = char},
@@ -116,61 +113,64 @@
 	#key{scancode = [16#E0, 16#48], key_characters = [up], type = nav},
 	#key{scancode = [16#E0, 16#50], key_characters = [down], type = nav},
 	% ralt = alt
-	#key{scancode = [16#E0, 16#38], key_characters = [alt], type = mod}, 
+	#key{scancode = [16#E0, 16#38], key_characters = [alt], type = mod},
 	% rctrl = ctrl
-	#key{scancode = [16#E0, 16#1D], key_characters = [ctrl], type = mod}] 
+	#key{scancode = [16#E0, 16#1D], key_characters = [ctrl], type = mod}]
 },
 %% The swedish key map uses a different layout, due to the number of characters
 %% required in the key_char field. Both layouts are acceptable.
+%        scan                            ctrl          alt    alt    ctrl
+%        code       base   shift  ctrl   shift  alt    shift  ctrl   shift
+%       ----------------------------------------------------------------
 {"se", [
-	{key, [002],   [$1,    $!,    nop,   nop,   nop,   nop,   nop,   nop], char},
-	{key, [003],   [$2,    $",    0,     0,     $@,    $@,    $@,    0  ], char},
-	{key, [004],   [$3,    $#,    nop,   nop,   16#a3, nop,   nop,   nop], char},
-	{key, [005],   [$4,    16#a4, nop,   nop,   $$,    nop,   nop,   nop], char},
-	{key, [006],   [$5,    $%,    nop,   nop,   nop,   nop,   nop,   nop], char},
-	{key, [007],   [$6,    $&,    nop,   nop,   nop,   nop,   nop,   nop], char},
-	{key, [008],   [$7,    $/,    nop,   nop,   ${,    nop,   nop,   nop], char},
-	{key, [009],   [$8,    $(,    nop,   nop,   $[,    nop,   nop,   nop], char},
-	{key, [010],   [$9,    $),    nop,   nop,   $],    nop,   gs,    nop], char},
-	{key, [011],   [$0,    $=,    nop,   nop,   $},    nop,   nop,   nop], char},
-	{key, [012],   [$+,    $?,    nop,   nop,   $\\,   nop,   fs,    nop], char},
-	{key, [013],   [16#80, $`,    nop,   nop,   nop,   nop,   nop,   nop], char},
-	{key, [016],   [$q,    $Q,    17,    17,    $q,    $Q,    17,    17 ], char},
-	{key, [017],   [$w,    $W,    23,    23,    $w,    $W,    23,    23 ], char},
-	{key, [018],   [$e,    $E,    5,     5,     $€,    $E,    5,     5  ], char},
-	{key, [019],   [$r,    $R,    18,    18,    $r,    $R,    18,    18 ], char},
-	{key, [020],   [$t,    $T,    20,    20,    $t,    $T,    20,    20 ], char},
-	{key, [021],   [$y,    $Y,    25,    25,    $y,    $Y,    25,    25 ], char},
-	{key, [022],   [$u,    $U,    21,    21,    $u,    $U,    21,    21 ], char},
-	{key, [023],   [$i,    $I,    9,     9,     $i,    $I,    9,     9  ], char},
-	{key, [024],   [$o,    $O,    15,    15,    $o,    $O,    15,    15 ], char},
-	{key, [025],   [$p,    $P,    16,    16,    $p,    $P,    16,    16 ], char},
-	{key, [026],   [16#e5, 16#c5, nop,   nop,   $},    $],    nop,   nop], char},
-	{key, [027],   [16#a8, $^,    nop,   nop,   $~,    nop,   nop,   nop], char},
-	{key, [030],   [$a,    $A,    1,     1,     $a,    $A,    1,     1  ], char},
-	{key, [031],   [$s,    $S,    19,    19,    $s,    $S,    19,    19 ], char},
-	{key, [032],   [$d,    $D,    4,     4,     $d,    $D,    4,     4  ], char},
-	{key, [033],   [$f,    $F,    46,    46,    $f,    $F,    46,    46 ], char},
-	{key, [034],   [$g,    $G,    7,     7,     $g,    $G,    7,     7  ], char},
-	{key, [035],   [$h,    $H,    8,     8,     $h,    $H,    8,     8  ], char},
-	{key, [036],   [$j,    $J,    10,    10,    $j,    $J,    10,    10 ], char},
-	{key, [037],   [$k,    $K,    11,    11,    $k,    $K,    11,    11 ], char},
-	{key, [038],   [$l,    $L,    12,    12,    $l,    $L,    12,    12 ], char},
-	{key, [039],   [16#f6, 16#d6, nop,   nop,   $|,    $\\,   nop,   nop], char},
-	{key, [040],   [16#e4, 16#c4, nop,   nop,   ${,    $[,    nop,   nop], char},
-	{key, [041],   [16#a7, 16#bd, nop,   nop,   nop,   $|,    nop,   nop], char},
-	{key, [043],   [$',    $*,    nop,   nop,   nop,   nop,   nop,   nop], char},
-	{key, [044],   [$z,    $Z,    26,    26,    $z,    $Z,    26,    26 ], char},
-	{key, [045],   [$x,    $X,    24,    24,    $x,    $X,    24,    24 ], char},
-	{key, [046],   [$c,    $C,    3,     3,     $c,    $C,    3,     3  ], char},
-	{key, [047],   [$v,    $V,    22,    22,    $v,    $V,    22,    22 ], char},
-	{key, [048],   [$b,    $B,    2,     2,     $b,    $B,    2,     2  ], char},
-	{key, [049],   [$n,    $N,    14,    14,    $n,    $N,    14,    14 ], char},
-	{key, [050],   [$m,    $M,    13,    13,    $m,    $M,    13,    13 ], char},
-	{key, [051],   [$,,    $;,    nop,   nop,   nop,   $<,    nop,   nop], char},
-	{key, [052],   [$.,    $:,    nop,   nop,   nop,   $>,    nop,   nop], char},
-	{key, [053],   [$-,    $_,    31,    nop,   $/,    $?,    nop,   nop], char},
-	{key, [086],   [$<,    $>,    nop,   nop,   $|,    nop,   nop,   nop], char},
-	{key, [16#E0, 16#38],   [ctrl,alt], mod}]  % ralt = alt-gr
+	{key, [16#02],   [$1,    $!,    nop,   nop,   nop,   nop,   nop,   nop], char},
+	{key, [16#03],   [$2,    $",    0,     0,     $@,    $@,    $@,    0  ], char},
+	{key, [16#04],   [$3,    $#,    nop,   nop,   16#a3, nop,   nop,   nop], char},
+	{key, [16#05],   [$4,    16#a4, nop,   nop,   $$,    nop,   nop,   nop], char},
+	{key, [16#06],   [$5,    $%,    nop,   nop,   nop,   nop,   nop,   nop], char},
+	{key, [16#07],   [$6,    $&,    nop,   nop,   nop,   nop,   nop,   nop], char},
+	{key, [16#08],   [$7,    $/,    nop,   nop,   nop,   nop,   ${,    nop], char},
+	{key, [16#09],   [$8,    $(,    nop,   nop,   nop,   nop,   $[,    nop], char},
+	{key, [16#0A],   [$9,    $),    nop,   nop,   nop,   nop,   $],    nop], char},
+	{key, [16#0B],   [$0,    $=,    nop,   nop,   nop,   nop,   $},    nop], char},
+	{key, [16#0C],   [$+,    $?,    nop,   nop,   nop,   nop,   $\\,   nop], char},
+	{key, [16#0D],   [16#80, $`,    nop,   nop,   nop,   nop,   nop,   nop], char},
+	{key, [16#10],   [$q,    $Q,    17,    17,    $q,    $Q,    17,    17 ], char},
+	{key, [16#11],   [$w,    $W,    23,    23,    $w,    $W,    23,    23 ], char},
+	{key, [16#12],   [$e,    $E,    5,     5,     $€,    $E,    5,     5  ], char},
+	{key, [16#13],   [$r,    $R,    18,    18,    $r,    $R,    18,    18 ], char},
+	{key, [16#14],   [$t,    $T,    20,    20,    $t,    $T,    20,    20 ], char},
+	{key, [16#15],   [$y,    $Y,    25,    25,    $y,    $Y,    25,    25 ], char},
+	{key, [16#16],   [$u,    $U,    21,    21,    $u,    $U,    21,    21 ], char},
+	{key, [16#17],   [$i,    $I,    9,     9,     $i,    $I,    9,     9  ], char},
+	{key, [16#18],   [$o,    $O,    15,    15,    $o,    $O,    15,    15 ], char},
+	{key, [16#19],   [$p,    $P,    16,    16,    $p,    $P,    16,    16 ], char},
+	{key, [16#1A],   [16#e5, 16#c5, nop,   nop,   $},    $],    nop,   nop], char},
+	{key, [16#1B],   [16#a8, $^,    nop,   nop,   nop,   nop,   $~,    nop], char},
+	{key, [16#1E],   [$a,    $A,    1,     1,     $a,    $A,    1,     1  ], char},
+	{key, [16#1F],   [$s,    $S,    19,    19,    $s,    $S,    19,    19 ], char},
+	{key, [16#20],   [$d,    $D,    4,     4,     $d,    $D,    4,     4  ], char},
+	{key, [16#21],   [$f,    $F,    6,     6,     $f,    $F,    6,     6  ], char},
+	{key, [16#22],   [$g,    $G,    7,     7,     $g,    $G,    7,     7  ], char},
+	{key, [16#23],   [$h,    $H,    8,     8,     $h,    $H,    8,     8  ], char},
+	{key, [16#24],   [$j,    $J,    $\n,   $\n,   $j,    $J,    $\n,   $\n], char},
+	{key, [16#25],   [$k,    $K,    11,    11,    $k,    $K,    11,    11 ], char},
+	{key, [16#26],   [$l,    $L,    $\f,   $\f,   $l,    $L,    $\f,   $\f], char},
+	{key, [16#27],   [16#f6, 16#d6, nop,   nop,   $|,    $\\,   $|,    nop], char},
+	{key, [16#28],   [16#e4, 16#c4, nop,   nop,   ${,    $[,    ${,    nop], char},
+	{key, [16#29],   [16#a7, 16#bd, nop,   nop,   nop,   $|,    nop,   nop], char},
+	{key, [16#2B],   [$',    $*,    nop,   nop,   nop,   nop,   nop,   nop], char},
+	{key, [16#2C],   [$z,    $Z,    26,    26,    $z,    $Z,    26,    26 ], char},
+	{key, [16#2D],   [$x,    $X,    24,    24,    $x,    $X,    24,    24 ], char},
+	{key, [16#2E],   [$c,    $C,    3,     3,     $c,    $C,    3,     3  ], char},
+	{key, [16#2F],   [$v,    $V,    22,    22,    $v,    $V,    22,    22 ], char},
+	{key, [16#30],   [$b,    $B,    2,     2,     $b,    $B,    2,     2  ], char},
+	{key, [16#31],   [$n,    $N,    14,    14,    $n,    $N,    14,    14 ], char},
+	{key, [16#32],   [$m,    $M,    $\r,   $\r,   $m,    $M,    $\r,   $\r], char},
+	{key, [16#33],   [$,,    $;,    nop,   nop,   nop,   $<,    nop,   nop], char},
+	{key, [16#34],   [$.,    $:,    nop,   nop,   nop,   $>,    nop,   nop], char},
+	{key, [16#35],   [$-,    $_,    31,    nop,   $/,    $?,    $/,    nop], char},
+	{key, [16#56],   [$<,    $>,    nop,   nop,   $|,    nop,   $|,    nop], char},
+	{key, [16#E0, 16#38],   [ctrl, alt], mod}]  % ralt = alt-gr
 }
 ]).
