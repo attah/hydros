@@ -147,8 +147,8 @@ generate_char([Key|_], Mods) ->
 		    lists:usort(lists:flatten([ M#key.key_characters || M <- Mods]))} of
 		{[{C, _}], _} -> C;
 		{[C], _} -> C;
-		{[C, _], []} -> C;
-		{[_, C|_], [shift]} -> C;
+		{[C | _], []} -> C;
+		{[_, C | _], [shift]} -> C;
 		{[_, _, C, _, _, _, _, _], [ctrl]} -> C;
 		{[_, _, _, _, C, _, _, _], [alt]} -> C;
 		{[_, _, _, _, _, _, C, _], [alt, ctrl]} -> C;
