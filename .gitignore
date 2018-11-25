@@ -1,0 +1,9 @@
+*.o
+*.a
+*.beam
+*.bin
+*.names
+*.tab
+build
+src/os/gen
+src/vm/emulator/x86_64-unknown-linux-gnu
